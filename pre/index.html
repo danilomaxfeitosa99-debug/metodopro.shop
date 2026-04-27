@@ -1,215 +1,65 @@
+
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reggeli méz-szokás: Amit az orvosok nem mondtak el</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#f8f5f0;color:#3a3530;-webkit-font-smoothing:antialiased}
-img{max-width:100%;height:auto;display:block}
-a{color:inherit;text-decoration:none}
-
-/* TOP BAR */
-.topbar{background:#2c2418;padding:8px 20px;display:flex;justify-content:space-between;align-items:center}
-.topbar .logo{font-family:'Fraunces',serif;font-size:13px;color:#d4a84c;font-weight:600;letter-spacing:.5px}
-.topbar .date{font-size:9px;color:#8a7a60;font-weight:300}
-
-/* SPLIT HERO */
-.split{display:grid;grid-template-columns:1fr 1fr;min-height:340px}
-.split-img{overflow:hidden;position:relative}
-.split-img img{width:100%;height:100%;object-fit:cover;cursor:pointer;transition:transform .4s}
-.split-img img:hover{transform:scale(1.03)}
-.split-txt{background:#2c2418;padding:28px 24px;display:flex;flex-direction:column;justify-content:center}
-.split-txt .tag{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:#d4a84c;margin-bottom:10px;font-weight:500}
-.split-txt h1{font-family:'Fraunces',serif;font-size:21px;color:#fff;line-height:1.35;font-weight:600;margin-bottom:10px}
-.split-txt h1 em{color:#d4a84c;font-style:normal}
-.split-txt .lead{font-size:12px;color:#a09080;line-height:1.7;font-weight:300}
-
-/* CTA BANNER */
-.cta-banner{background:linear-gradient(135deg,#d4a84c,#b8862c);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.cta-banner .left{flex:1}
-.cta-banner h2{font-family:'Fraunces',serif;font-size:15px;color:#2c2418;font-weight:600;line-height:1.3}
-.cta-banner p{font-size:10px;color:rgba(44,36,24,.5);margin-top:2px;font-weight:300}
-.btn-cta{display:inline-block;background:#2c2418;color:#d4a84c;padding:12px 36px;font-size:13px;font-weight:500;border-radius:4px;transition:all .25s;white-space:nowrap;letter-spacing:.3px}
-.btn-cta:hover{background:#1a150d;transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.2)}
-
-/* MAIN CONTENT */
-.main{max-width:680px;margin:0 auto;padding:24px 20px}
-
-/* ARTICLE STYLE */
-.art p{font-size:14px;line-height:1.9;color:#4a4540;font-weight:300;margin-bottom:14px}
-.art strong{color:#2c2418;font-weight:500}
-.art em{color:#b8862c;font-style:normal;font-weight:400}
-
-/* QUESTION CALLOUT */
-.q-call{margin:20px 0;padding:18px 22px;background:#fff;border-radius:8px;border-left:4px solid #d4a84c;box-shadow:0 2px 12px rgba(0,0,0,.04)}
-.q-call h3{font-family:'Fraunces',serif;font-size:17px;color:#2c2418;font-weight:600;line-height:1.4}
-.q-call h3 em{color:#b8862c;font-style:normal}
-
-/* TESTIMONIAL CARD */
-.test-card{margin:20px 0;display:grid;grid-template-columns:140px 1fr;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.06)}
-.test-card img{width:100%;height:100%;object-fit:cover;cursor:pointer}
-.test-card .txt{padding:16px 18px;display:flex;flex-direction:column;justify-content:center}
-.test-card .qt{font-family:'Fraunces',serif;font-size:13px;color:#4a4540;font-style:italic;line-height:1.6;margin-bottom:6px}
-.test-card .nm{font-size:9.5px;color:#b8862c;font-weight:500}
-
-/* NUMBERED LIST */
-.num-list{margin:20px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.04)}
-.num-list .title{padding:14px 18px;font-family:'Fraunces',serif;font-size:14px;color:#2c2418;font-weight:600;border-bottom:1px solid #f0ebe4}
-.num-item{padding:12px 18px;border-bottom:1px solid #f8f5f0;display:flex;gap:12px;align-items:flex-start}
-.num-item:last-child{border-bottom:none}
-.num-n{width:26px;height:26px;background:#d4a84c;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0}
-.num-t{font-size:12.5px;color:#4a4540;font-weight:300;line-height:1.6}
-.num-t strong{color:#2c2418;font-weight:500}
-
-/* HIGHLIGHT STRIP */
-.h-strip{margin:20px 0;padding:16px 20px;background:#2c2418;border-radius:6px;text-align:center}
-.h-strip p{font-family:'Fraunces',serif;font-size:14px;color:#d4a84c;font-style:italic;line-height:1.6}
-
-/* CTA BOTTOM */
-.cta-end{margin:20px 0;padding:22px;background:#fff;border-radius:8px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.06);border:2px solid #d4a84c}
-.cta-end h3{font-family:'Fraunces',serif;font-size:16px;color:#2c2418;margin-bottom:4px;font-weight:600}
-.cta-end p{font-size:10.5px;color:#8a7a60;margin-bottom:12px;font-weight:300}
-.cta-end .btn-cta{background:#d4a84c;color:#2c2418}.cta-end .btn-cta:hover{background:#b8862c;color:#fff}
-.cta-end small{display:block;margin-top:6px;font-size:7.5px;color:#bbb}
-
-/* DISCLAIMER */
-.disc{font-size:8px;color:#999;margin:16px 0;padding:12px 14px;background:#f0ebe4;border-radius:4px;line-height:1.7}
-
-/* FOOTER */
-footer{padding:16px 20px 30px;text-align:center;font-size:8px;color:#aaa}
-footer a{color:#b8862c}footer a:hover{text-decoration:underline}
-
-@media(max-width:640px){
-.split{grid-template-columns:1fr;min-height:auto}
-.split-img{max-height:240px}
-.split-txt{padding:20px 18px}
-.split-txt h1{font-size:18px}
-.cta-banner{flex-direction:column;text-align:center;padding:14px 18px}
-.test-card{grid-template-columns:1fr;}.test-card img{height:180px}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aes Suplementos - Institucional</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">Aes Suplementos</div>
+            <ul>
+                <li><a href="https://google.com">Início</a></li>
+                <li><a href="https://google.com">Sobre</a></li>
+                <li><a href="https://google.com">Serviços</a></li>
+                <li><a href="https://google.com">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- TOP BAR -->
-<div class="topbar">
-<div class="logo">Egészség &amp; Élet</div>
-<div class="date"><script>var d=new Date();var m=['január','február','március','április','május','június','július','augusztus','szeptember','október','november','december'];document.write(d.getFullYear()+'. '+m[d.getMonth()]+' '+d.getDate()+'.')</script></div>
-</div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bem-vindo à Aes Suplementos</h1>
+            <p>Qualidade, tradição e excelência em cada detalhe.</p>
+            <a href="https://google.com" class="btn">Saiba Mais</a>
+        </div>
+    </section>
 
-<!-- SPLIT HERO -->
-<section class="split">
-<div class="split-img">
-<a href="https://lp.metodopro.shop/preclick"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663297503148/jCMGTU5NUP78zZrraNsLhW/mem16-honey-morning-ritual-Vx6YTvWp7UWe5sp9u5jC3N.webp" alt="Magyar akácméz reggeli rituálé"></a>
-</div>
-<div class="split-txt">
-<span class="tag">Emlékezet &middot; Természetes módszerek</span>
-<h1>Egy kanál méz reggel — és amit az orvosok <em>nem mondtak el</em> az agyról</h1>
-<p class="lead">Egy nyugdíjas tanár története, aki visszanyerte az emlékezetét egy régi magyar recepttel.</p>
-</div>
-</section>
+    <section class="features">
+        <div class="feature">
+            <img src="images/feature1.jpg" alt="Qualidade" onclick="window.location.href='https://google.com';">
+            <h3>Qualidade Premium</h3>
+            <p>Produtos e serviços de altíssima qualidade.</p>
+        </div>
+        <div class="feature">
+            <img src="images/feature2.jpg" alt="Atendimento" onclick="window.location.href='https://google.com';">
+            <h3>Atendimento Dedicado</h3>
+            <p>Suporte completo para suas necessidades.</p>
+        </div>
+        <div class="feature">
+            <img src="images/feature3.jpg" alt="Inovação" onclick="window.location.href='https://google.com';">
+            <h3>Inovação Contínua</h3>
+            <p>Sempre buscando as melhores soluções.</p>
+        </div>
+    </section>
 
-<!-- CTA BANNER -->
-<div class="cta-banner">
-<div class="left">
-<h2>&#9654; Nézze meg a videót, amely mindent elmagyaráz</h2>
-<p>Hogyan hat a méz az agyra — és miért kell pontosan így fogyasztani</p>
-</div>
-<a href="https://lp.metodopro.shop/preclick" class="btn-cta">Videó megtekintése &rarr;</a>
-</div>
-
-<!-- MAIN CONTENT -->
-<div class="main art">
-
-<p>Bemegy a konyhába — és <strong>nem emlékszik, miért ment be.</strong> Találkozik egy régi ismerőssel — és <strong>nem jut eszébe a neve.</strong> Leteszi a kulcsait — és <strong>öt perc múlva fogalma sincs, hová tette.</strong></p>
-
-<p>A legtöbb ember azt mondja: <strong>„Ez az öregedés, ezzel nem lehet mit tenni."</strong></p>
-
-<p>De mi van, ha <em>ez nem az egész igazság?</em></p>
-
-<!-- QUESTION -->
-<div class="q-call">
-<h3>Mi van, ha az emlékezet romlásának <em>nem csak az életkor</em> az oka?</h3>
-</div>
-
-<p>Egy <strong>68 éves budapesti nyugdíjas tanár</strong> — aki egész életében könyveket olvasott és keresztrejtvényeket fejtett — <strong>észrevette, hogy hónapról hónapra rosszabb az emlékezete.</strong></p>
-
-<p>Aztán egy régi barátja — <strong>egy vidéki méhész Eger mellől</strong> — mesélt neki egy receptről. Egy <em>mézes keverékről</em>, amelyet <strong>a magyar nagymamák</strong> már generációk óta készítenek minden reggel.</p>
-
-<p><strong>Nem hitte el.</strong> De kipróbálta. És ami utána történt — <em>arra nem számított.</em></p>
-
-<!-- QUESTION -->
-<div class="q-call">
-<h3>De miért pont <em>a méz?</em> És miért nem elég <em>egyszerűen megenni?</em></h3>
-</div>
-
-<p>A titok nem magában a mézben van. Hanem abban, <strong>hogyan</strong> és <strong>mivel</strong> kombináljuk. Önmagában a méz csak egy édesítő. De ha <em>ezzel a négy másik összetevővel</em> keverjük össze — és <strong>reggel, éhgyomorra</strong> fogyasztjuk — <em>az agyban valami egészen más történik.</em></p>
-
-<p>A <strong>magyar méhészek</strong> ezt évszázadok óta tudják. De csak most, amikor a <strong>kutatók megvizsgálták</strong> — értették meg, <em>miért működik.</em></p>
-
-<!-- TESTIMONIAL CARD -->
-<div class="test-card">
-<a href="https://lp.metodopro.shop/preclick"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663297503148/jCMGTU5NUP78zZrraNsLhW/mem16-hungarian-professor-N4qN8n6twAijHrXBYGh8rW.webp" alt="Magyar nyugdíjas tanár"></a>
-<div class="txt">
-<p class="qt">„Három hónapja csinálom minden reggel. A feleségem mondta: 'Végre nem keresel mindent — mert emlékszel, hová tetted.' Az unokáim is észrevették a változást."</p>
-<p class="nm">— Nagy István, 68 éves, Budapest (nyugdíjas tanár)</p>
-</div>
-</div>
-
-<!-- NUMBERED LIST -->
-<div class="num-list">
-<div class="title">Amit a videóból megtudhat:</div>
-<div class="num-item">
-<span class="num-n">1</span>
-<div class="num-t">Melyik az a <strong>„rejtett anyag"</strong> a mézben, amely a kutatók szerint <strong>közvetlenül hat az agysejtek közötti kommunikációra</strong></div>
-</div>
-<div class="num-item">
-<span class="num-n">2</span>
-<div class="num-t">A <strong>4 másik összetevő</strong>, amely „aktiválja" a méz hatását — és <strong>minden magyar konyhában megtalálható</strong></div>
-</div>
-<div class="num-item">
-<span class="num-n">3</span>
-<div class="num-t">Miért <strong>nem működik</strong>, ha a mézet forró teába teszi — és mi az <strong>egyetlen helyes módszer</strong></div>
-</div>
-<div class="num-item">
-<span class="num-n">4</span>
-<div class="num-t">Miért a <strong>reggel, éhgyomorra</strong> a leghatékonyabb időpont — és mit mondanak erről az <strong>egri méhészek</strong></div>
-</div>
-</div>
-
-<!-- HIGHLIGHT -->
-<div class="h-strip">
-<p>„A titok nem magában a mézben van. Hanem abban, ami történik, amikor a megfelelő összetevőkkel, a megfelelő időben fogyasztjuk."</p>
-</div>
-
-<!-- CTA BOTTOM -->
-<div class="cta-end">
-<h3>Fedezze fel a teljes receptet — lépésről lépésre</h3>
-<p>Pontos összetevők · Helyes arányok · Ideális időpont</p>
-<a href="https://lp.metodopro.shop/preclick" class="btn-cta">Videó megtekintése &rarr;</a>
-<small>Ingyenes tájékoztató tartalom</small>
-</div>
-
-<!-- DISCLAIMER -->
-<div class="disc">
-<strong>Jogi nyilatkozat:</strong> Ez a cikk kizárólag tájékoztató jellegű, és nem minősül orvosi tanácsadásnak. Az étrend-kiegészítők nem helyettesítik a változatos étrendet és az egészséges életmódot. Az eredmények egyénenként eltérőek lehetnek. Bármilyen étrendváltoztatás előtt konzultáljon orvosával. A cikkben szereplő vélemények az olvasók személyes tapasztalatait tükrözik.
-</div>
-
-</div>
-
-<footer>
-<p><a href="privacy.html">Adatvédelem</a> &middot; <a href="terms.html">Felhasználási feltételek</a></p>
-<p style="margin-top:3px">© <script>document.write(new Date().getFullYear())</script> · CNPJ: 44.430.230/0001-66</p>
-</footer>
-
-<script>
-(function(){var q=window.location.search;if(!q)return;document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href');if(!h||h.startsWith('#')||h.startsWith('mailto:'))return;a.setAttribute('href',h.includes('?')?h+'&'+q.substring(1):h+q)})})();
-</script>
-<script type="text/javascript" src="https://lp.metodopro.shop/pretrack.js?rtkcmpid=69e0e06fd002f2a62c199398"></script>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Aes Suplementos. Todos os direitos reservados.</p>
+            <p>CNPJ: 44.430.230/0001-66</p>
+            <p>Google Ads ID: 669-717-3488</p>
+            <p>Domínio: metodopro.shop/pre</p>
+            <p>Rua Nicolau Von Zuben, 606, Anexo 1, Capela, Vinhedo - SP, 13285-512</p>
+            <div class="legal-links">
+                <a href="privacy.html">Política de Privacidade</a> | 
+                <a href="terms.html">Termos de Uso</a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>
